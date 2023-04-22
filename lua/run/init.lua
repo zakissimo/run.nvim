@@ -6,7 +6,7 @@ M.setup = {
 
 M.previous_input = {}
 
-M.code = function ()
+M.cmd = function ()
     local prompt = "Insert Command: "
     local bufmap = vim.api.nvim_buf_set_keymap
     local bufnr = vim.api.nvim_get_current_buf()
