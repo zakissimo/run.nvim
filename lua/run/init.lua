@@ -11,7 +11,10 @@ M.cmd = function ()
     local bufmap = vim.api.nvim_buf_set_keymap
     local bufnr = vim.api.nvim_get_current_buf()
 
-    vim.ui.input({ prompt = prompt, default = M.previous_input[bufnr] }, function(input)
+    vim.ui.input({ prompt = prompt,
+        default = M.previous_input[bufnr],
+        completion = "file" },
+        function(input)
         if input then
             bufmap(0, "n", M.setup.input_map,
                 ":w<CR>:!" .. input .. "<CR>", { noremap = true })
